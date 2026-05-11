@@ -656,58 +656,5 @@ pred = np.<span class="fn">argmax</span>(proba_scaled, axis=<span class="num">1<
       <span class="tag">Kaggle (CPU)</span>
     </div>
   </section>
-
-  <!-- LINKEDIN POST -->
-  <section>
-    <div class="sec-label">10 — Ready to Post</div>
-    <h2>LinkedIn / Social Caption</h2>
-
-    <div class="linkedin-box">
-      <button class="copy-btn" onclick="copyText()">copy text</button>
-      <div class="linkedin-text" id="li-text">🚀 Just completed a Kaggle NLP Competition — Comment Category Prediction Challenge!
-
-Built a classical NLP pipeline to classify 198K online comments into 4 toxicity levels (Neutral / Mild Toxic / Offensive / Hate Speech) — and landed a public Macro F1 of 0.82563.
-
-The real challenge wasn't the models. It was the data: a 20:1 class imbalance where Hate Speech was only 2.8% of the dataset. Accuracy looked great at 91% — but Macro F1 told the honest story.
-
-Here's what actually worked:
-
-📌 TF-IDF (100K features, unigrams + bigrams, sublinear_tf) — captures keyword-driven toxicity patterns efficiently without needing GPU or transformer models
-
-📌 class_weight='balanced' on both Logistic Regression and LinearSVC — gives Hate Speech an 8.9× loss multiplier so the model actually learns it
-
-📌 Weighted probability ensemble (LR 40% + LinearSVC 60%) — LR gives calibrated probabilities; LinearSVC scores go through softmax first, then blended
-
-📌 Per-class scale tuning with scipy.optimize + Nelder-Mead — optimised scaling factors [1.17, 0.98, 1.06, 0.87] that corrected systematic probability biases, adding +0.006 Macro F1 at zero retraining cost
-
-Final validation results:
-• Neutral → F1: 0.96
-• Mild Toxic → F1: 0.78
-• Offensive → F1: 0.89
-• Hate Speech → F1: 0.67
-• Macro F1: 0.8293 (val) | 0.82563 (public leaderboard)
-
-Key takeaway: Classical NLP with the right metric, the right loss weighting, and smart post-processing can compete surprisingly well. BERT would push it further — but understanding why linear models work first makes you a better practitioner.
-
-#NLP #MachineLearning #Kaggle #TextClassification #Python #ScikitLearn #DataScience</div>
-    </div>
-  </section>
-
-  <footer>
-    Comment Category Prediction Challenge · Kaggle Competition · Built with Python + scikit-learn
-  </footer>
-
-</div>
-
-<script>
-function copyText() {
-  const text = document.getElementById('li-text').innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.querySelector('.copy-btn');
-    btn.textContent = 'copied ✓';
-    setTimeout(() => btn.textContent = 'copy text', 2000);
-  });
-}
-</script>
 </body>
 </html>
